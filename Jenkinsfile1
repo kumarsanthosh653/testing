@@ -1,0 +1,24 @@
+pipeline {
+agent any
+     environment {
+        SECRET_VALUE = credentials('aws/secretkey')
+            }
+    stages {
+        stage('Code checkout') {
+            steps {
+                script {
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '${SECRET_VALUE}', url: 'https://github.com/demo-organization-01/ozontel.git']]])
+                }
+            }
+        }
+        //stage('Aws parameter') {
+            //steps {
+                //script {
+                 //withAWSParameterStore(credentialsId: 'Accesskey',  regionName: 'ap-south-1') { 
+                   //echo "${env.Accesskey}" 
+                 //}
+               //}
+            //} 
+        //}
+      }
+}
