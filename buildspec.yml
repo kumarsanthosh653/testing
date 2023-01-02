@@ -17,7 +17,7 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
       - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 084863486684.dkr.ecr.ap-south-1.amazonaws.com
-      - - docker tag ozentol:latest 084863486684.dkr.ecr.ap-south-1.amazonaws.com/minfy:latest
+      - docker tag ozentol:latest 084863486684.dkr.ecr.ap-south-1.amazonaws.com/minfy:latest
       - docker push 084863486684.dkr.ecr.ap-south-1.amazonaws.com/minfy:latest
       - echo image pushed.
  
