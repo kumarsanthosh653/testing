@@ -6,8 +6,8 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/y1d9x2d8
-      - REPOSITORY_URI=084863486684.dkr.ecr.ap-south-1.amazonaws.com/oznetol
+      - aws ecr-public get-login-password --region ap-south-1 | docker login --username AWS --password-stdin public.ecr.aws/y1d9x2d8
+      - REPOSITORY_URI=public.ecr.aws/y1d9x2d8/ozentoldemo
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
@@ -18,7 +18,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/y1d9x2d8
+      - aws ecr-public get-login-password --region ap-south-1 | docker login --username AWS --password-stdin public.ecr.aws/y1d9x2d8
       - docker push ${REPOSITORY_URI}:latest
       - echo image pushed.
       - printf '[{"name":"sample-container","imageUri":"805392809179.dkr.ecr.ap-south-1.amazonaws.com/oz-ecr:latest"}]' > imagedefinitions.json
