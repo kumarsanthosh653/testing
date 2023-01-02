@@ -16,7 +16,6 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker tag ozentol:latest 084863486684.dkr.ecr.ap-south-1.amazonaws.com/minfy:latest
       - docker push 084863486684.dkr.ecr.ap-south-1.amazonaws.com/minfy:latest
       - echo image pushed.
  
