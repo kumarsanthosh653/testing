@@ -18,6 +18,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
+      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 058547972331.dkr.ecr.ap-south-1.amazonaws.com
       - docker push ${REPOSITORY_URI}:latest
       - echo image pushed.
       - printf '[{"name":"sample-container","imageUri":"805392809179.dkr.ecr.ap-south-1.amazonaws.com/oz-ecr:latest"}]' > imagedefinitions.json
