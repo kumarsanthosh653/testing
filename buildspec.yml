@@ -13,6 +13,8 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
+      - yum install docker -y
+      - service docker start
       - docker build -t ${REPOSITORY_URI}:latest .
   post_build:
     commands:
