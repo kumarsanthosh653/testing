@@ -7,7 +7,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 569428056424.dkr.ecr.ap-south-1.amazonaws.com
-      - 569428056424.dkr.ecr.ap-south-1.amazonaws.com/tomcat
+      - REPOSITORY_URI=569428056424.dkr.ecr.ap-south-1.amazonaws.com/tomcat
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
