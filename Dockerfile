@@ -25,4 +25,4 @@ COPY sample.war /opt/jetty/demo-base/
 CMD ["/opt/jetty/bin/jetty.sh", "run"]
 
 # Exposing Port
-EXPOSE 80
+EXPOSE 8080
