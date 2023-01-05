@@ -1,11 +1,11 @@
 FROM alpine:latest
-FROM openjdk:11.0.13
+# FROM openjdk:11.0.13
 
 
 
 
 # Checking Java version
-RUN java -version
+# RUN java -version
 
 # Fetching jetty distribution package
 # RUN wget -q -O /jetty.tar.gz "https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/10.0.0.beta0/jetty-distribution-10.0.0.beta0.tar.gz"
