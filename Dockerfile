@@ -3,7 +3,7 @@ FROM alpine:latest
 
 
 
-
+FROM httpd
 # Checking Java version
 # RUN java -version
 
